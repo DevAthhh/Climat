@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(70deg, #ffffff, #95C3FF);
+}
+
+.main-container {
+    position: relative;
+    width: 600px;
+    height: 900px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.412);
+    box-shadow: 7px 7px 30px rgba(0, 0, 0, 0.486);
+    overflow: hidden;
+    opacity: 70%;
+    transition: all .2s;
+}
+
+.main-container:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
+}
+
+.text-city {
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
+
+.bg-svg {
+    position: absolute;
+    bottom: -180px;
+    left: -360px;
+    width: 900px;
+    height: 900px;
+    opacity: 30%;
+    z-index: -1000;
+}
+
+.text-temp {
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-size: 120px;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 40px;
+}
+
+.text-feels-like {
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-size: 30px;
+    width: 100%;
+    padding-left: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.form-city-input {
+    z-index: 10000;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+    
+}
+
+.form-city-input > input {
+    height: 66px;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat';
+    background: #000;
+    opacity: 33%;
+    color: white;
+    font-size: 30px;
+    padding-left: 20px;
+}
+.form-city-input > button {
+    height: 66px;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    font-family: 'Montserrat';
+    font-size: 30px;
+    background: #000;
+    color: white;
+}
+
+.form-city-input > button:hover {
+    cursor:pointer;
+    background: #000;
+    color: white;
+}
+
+.text-weather {
+    font-family: 'Montserrat';
+    font-weight: 300;
+    font-size: 50px;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 40px;
+}
