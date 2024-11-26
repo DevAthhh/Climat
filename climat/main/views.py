@@ -1,27 +1,28 @@
-from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-import requests
-from django.views.decorators.http import require_http_methods
+from django.views.generic.base import View
 
-from main.utils.get_weather import get_weather
+from .utils.utils import get_objects_for_context
 
 
-def index(request):
-    if request.method == 'POST':
-        request.session['city'] = request.POST.get('city')
-        return redirect('home')
-    try:
-        city = request.session.get('city')
-        if city:
-            temp = get_weather(city)
-        else:
-            city = 'None'
-            temp = 'None'
-    except:
-        city = 'Москва'
-        temp = 'None'
-    return render(request, 'main/index.html', context={'title': 'Погода',
-                                                       'city': city,
-                                                       'temperature': temp[1],
-                                                       'feels_like': temp[2],
-                                                       'weather': temp[0]})
+class Index(View):
+    """
+    This is a view class, about main page...
+    """
+
+    def get(self, request, *args, **kwargs):
+        data = get_objects_for_context(request=request)
+        if type(data) == dict:
+            return render(request, 'main/index.html', context={'title': 'Погода',
+                                                           'city': data['city'],
+                                                           'temperature': data['temperature'],
+                                                           'feels_like': data['feels_like'],
+                                                           'weather': data['weather'],
+                                                        })
+        return render(request, 'main/index.html', context={'title': 'Погода',
+                                                           'city': 'None',
+                                                        })
+
+    def post(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            request.session['city'] = request.POST.get('city')
+            return redirect('home')

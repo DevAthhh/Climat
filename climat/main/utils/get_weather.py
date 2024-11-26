@@ -1,7 +1,7 @@
 import requests
 from .conf import API_W
 
-def get_weather(city):
+def get_weather(city) -> list:
     api_key = API_W
     base_url = "http://api.openweathermap.org/data/2.5/weather"
     params = {

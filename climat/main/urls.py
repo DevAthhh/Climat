@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import index
+from .views import Index
 
 urlpatterns = [
-    path('', index, name='home'),
+    path('', Index.as_view(), name='home'), # This is a path to main page
 ]
